@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: Zhu
+ * @Date: 2022-10-09 14:09:56
+ * @LastEditors: Zhu
+ * @LastEditTime: 2022-10-09 20:17:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="login_bg f_dc f_c">
+    <div class="f_dac">
+      <div class="qi t_c">
+        <img src="/img/qi_center.png" alt="">
+        <img src="/img/qi_center.png" alt="">
+        <img src="/img/qi_center.png" alt="">
+      </div>
+      <img src="/img/meat.png" alt="" class="meat">
+    </div>
+
+    <div class="loading_text f_ac">
+      <span>LOADING</span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <span class="number">0%</span>
+  </div>
+  <script>
+    window.onload = function () {
+      const number = document.querySelector('.number')
+      console.log('🚀 ~ file: index.html ~ line 41 ~ number', number)
+      let n = 0
+      let timer = null
+      timer = setInterval(() => {
+        n += 5
+        number.innerHTML = n + ' %'
+        if (n >= 100) {
+          clearInterval(timer)
+          window.location.href = './main.html'
+        }
+      }, 100)
+    }
+  </script>
+</body>
+
+</html>

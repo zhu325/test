@@ -1,0 +1,261 @@
+<!--
+ * @Description: 
+ * @Author: Zhu
+ * @Date: 2022-10-09 14:09:56
+ * @LastEditors: Zhu
+ * @LastEditTime: 2022-10-09 21:00:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="top_fixed">
+    <div class="music_btn">
+      <img src="/img/music.png" alt="">
+    </div>
+
+    <div class="f_dac logo">
+      <div class="qi t_c">
+        <img src="/img/qi_center.png" alt="">
+        <img src="/img/qi_center.png" alt="">
+        <img src="/img/qi_center.png" alt="">
+      </div>
+      <img src="/img/meat.png" alt="" class="meat">
+      <span class="fs_12 c_theme bold mt_10">一碗东坡肉</span>
+    </div>
+  </div>
+  <div class="swiper">
+
+    <div class="main_bg silde f_dc f_c">
+
+      <div class="title">
+        <h1 class="f_ac c_theme bold">聊美食</h1>
+        <h1 class="f_ac c_theme bold">我们是专业的</h1>
+      </div>
+
+      <div class="quan_content">
+        <div class="f_c meat_box">
+          <img src="/img/meat.png" alt="" class="meat">
+        </div>
+        <div class="quan one"></div>
+        <div class="quan two">
+          <img src="/img/haungjiu.png" alt="">
+          <img src="/img/zhurou.png" alt="">
+          <img src="/img/bingtang.png" alt="">
+          <img src="/img/bajiao.png" alt="">
+        </div>
+        <div class="quan three">
+          <img src="/img/congjiang.png" alt="">
+        </div>
+        <div class="quan four"></div>
+      </div>
+    </div>
+    <div class="main_bg silde f_dac f_jsb ">
+      <img src="img/meat_bg.png" alt="" class="img_bg">
+      <div class="text">
+        <h1 class="c_theme">猪肉悼水,</h1>
+      </div>
+      <div class="dec c_theme bold">
+        <span>肥瘦适当、层层肥瘦相间,比例接近。</span>
+        <p>五花肉挑选经验</p>
+      </div>
+      <div class="list f_c">
+        <div class="item f_c active">
+          <img src="img/zhurou1.png" alt="">
+          <div class="dot_content">
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="item f_c">
+          <img src="img/zongjiang1.png" alt="">
+          <div class="dot_content">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="item f_c">
+          <img src="img/bingtang1.png" alt="">
+          <div class="dot_content">
+            <p class="dot"></p>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="main_bg silde f_dac f_jsb ">
+      <img src="img/last_bg.png" alt="" class="last_bg">
+      <div class="text c_theme duanluan">
+        <p class="t_c t">《猪肉颂》</p>
+        <p>净洗铛，少著水，柴头罨烟焰不起。待他自熟莫催他，火候足时他自美。黄州好猪肉，价贱如泥土。</p>
+        <p>贵者不肯吃，贫者不解煮，早晨起来打两碗，饱得自家君莫管。</p>
+        <p class="t_r">——苏轼</p>
+      </div>
+
+      <div class="f_dac last_rou">
+        <div class="qi t_c">
+          <img src="/img/qi_center.png" alt="">
+          <img src="/img/qi_center.png" alt="">
+          <img src="/img/qi_center.png" alt="">
+        </div>
+        <img src="/img/meat.png" alt="" class="meat">
+      </div>
+    </div>
+
+    <div class="f_dac arr_btn">
+      <span class="c_theme bold ">了解做法</span>
+      <img src="img/arr.png" alt="">
+    </div>
+  </div>
+
+
+
+  <audio src="bgm.mp3" id="music"></audio>
+  <script>
+    window.onload = function () {
+      const music = document.getElementById('music')
+      const music_btn = document.querySelector('.music_btn')
+      const swiper = document.querySelector('.swiper')
+      const silde = document.querySelectorAll('.silde')
+      const img_bg = document.querySelector('.img_bg')
+      const arr_btn = document.querySelector('.arr_btn')
+      const arr_btn_span = document.querySelector('.arr_btn span')
+      const item = document.querySelectorAll('.item')
+      const title_dom = document.querySelector('.text h1')
+      const dec_text_dom = document.querySelector('.dec span')
+      const dec_name_dom = document.querySelector('.dec p')
+      const logo_dom = document.querySelector('.logo')
+
+
+
+      let key = true
+      music_btn.onclick = () => {
+        if (key) {
+          music.play()
+          music_btn.classList = 'music_btn play'
+        } else {
+          music.pause()
+          music.load()
+          music_btn.classList = 'music_btn play stop'
+        }
+        key = !key
+      }
+
+      let page = 1
+      arr_btn.onclick = () => {
+        page_next()
+        page++
+      }
+      let page_next = () => {
+        console.log(page, '结束')
+        if (page == 1) arr_btn_span.style.display = 'none'
+        if (page == 2) {
+          arr_btn.classList = 'f_dac arr_btn last'
+          arr_btn_span.style.display = 'inline-block'
+          logo_dom.style.display = 'none'
+        }
+        else {
+          arr_btn.classList = 'f_dac arr_btn'
+          logo_dom.style.display = 'flex'
+        }
+        if (page == 3) {
+          page = 1
+          silde[page].style.opacity = `1`
+          for (let index = 0; index < silde.length; index++) {
+            silde[index].style.transform = `translateY(-${page}00%)`
+          }
+        } else {
+          silde[page - 1].style.opacity = `0`
+          for (let index = 0; index < silde.length; index++) {
+            silde[index].style.transform = `translateY(-${page}00%)`
+          }
+        }
+      }
+      let page_prev = () => {
+        silde[page - 1].style.opacity = `1`
+        for (let index = 0; index < silde.length; index++) {
+          silde[index].style.transform = `translateY(-${page - 1}00%)`
+        }
+      }
+
+      let item_id = 0
+      let text_arr = [{
+        name: '五花肉挑选经验',
+        text: `猪肉焯水，<br>切成大小适宜的方块。`,
+        dec: '肥瘦适当、层层肥瘦相间，比例接近。',
+        id: 1,
+        bg_url: './img/meat_bg.png'
+      },
+      {
+        name: '八角挑选经验',
+        text: '用铁锅或者砂锅放入葱、姜、八角、肉皮朝下放入五花肉，倒入黄酒没过食材。',
+        dec: '颗粒饱满、整齐完整、呈棕红色、夹边裂缝隙较大。',
+        id: 2,
+        bg_url: './img/congjiang_bg.png'
+      },
+      {
+        name: '冰糖挑选经验',
+        text: '放入冰糖、老抽、盐大火煮开后，小火慢炖1.5小时大火收汁出锅！',
+        dec: '晶体光泽、晶粒均匀不含杂质，呈白色或淡黄色半透明。',
+        id: 3,
+        bg_url: './img/bingtang_bg.png'
+      }]
+
+      title_dom.innerHTML = text_arr[0].text
+      dec_text_dom.innerHTML = text_arr[0].dec
+      dec_name_dom.innerHTML = text_arr[0].name
+
+      for (let index = 0; index < item.length; index++) {
+        item[index].onclick = function () {
+          title_dom.innerHTML = text_arr[index].text
+          dec_text_dom.innerHTML = text_arr[index].dec
+          dec_name_dom.innerHTML = text_arr[index].name
+          img_bg.setAttribute('src', text_arr[index].bg_url)
+
+          const item = document.querySelectorAll('.item')
+          for (let index = 0; index < item.length; index++) {
+            item[index].classList = 'item f_c'
+          }
+          this.classList = 'item f_c active'
+        }
+      }
+
+
+      const box = document.querySelector('body')
+      let startY = 0
+      let endY = 0
+      box.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY
+      })
+
+      box.addEventListener('touchend', (e) => {
+
+        endY = e.changedTouches[0].clientY
+        console.log('🚀 ~ file: main.html ~ line 230 ~ box.addEventListener ~ endY', startY - endY, (startY - endY) > -40)
+
+        if (startY - endY > 40) {
+          page_next()
+          page++
+        } else if ((startY - endY) < -40) {
+          page_prev()
+          if (page != 1) page--
+        }
+
+        console.log(page, 'page')
+      })
+
+
+    }
+  </script>
+</body>
+
+</html>
